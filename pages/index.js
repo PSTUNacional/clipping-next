@@ -174,7 +174,7 @@ export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) 
         div className = { styles.gridposts } >
 
         {
-            listmit.map((item) => ( <
+            listsh.map((item) => ( <
                 a key = { item.id }
                 className = { styles.postitem }
                 href = { item.link }
