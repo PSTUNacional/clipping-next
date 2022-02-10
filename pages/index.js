@@ -243,8 +243,7 @@ export default function Home({ listpstu, listlit, listmetro, listmit, listsh, li
                 /a>
             ))
         } <
-        /div>  <
-        /
+        /div>  < /
         main > <
         /div>
     );
@@ -266,7 +265,7 @@ export async function getServerSideProps() {
     const postSh = await fetch("https://clipping-next.vercel.app/api/posts_sh");
     const postShJson = await postSh.json();
 
-    const postCorriente = await fetch("https://clipping-next.vercel.app/api/posts_sh");
+    const postCorriente = await fetch("https://clipping-next.vercel.app/api/posts_corriente");
     const postCorrienteJson = await postCorriente.json();
 
 
