@@ -163,8 +163,7 @@ export default function Home({ listpstu, listlit, listmetro, listmit }) {
                 /a>
             ))
         } <
-        /div></h
-        3 >
+        /div>
 
         <
         /
@@ -183,7 +182,7 @@ export async function getServerSideProps() {
     const postMetro = await fetch("https://clipping-next.vercel.app/api/posts_metro");
     const postMetroJson = await postMetro.json();
 
-    const postMit = await fetch("https://clipping-next.vercel.app/api/posts_metro");
+    const postMit = await fetch("https://clipping-next.vercel.app/api/posts_mit");
     const postMitJson = await postMit.json();
 
 
