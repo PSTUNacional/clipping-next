@@ -7,7 +7,6 @@
     display: flex;
     color: white;
     box-shadow: 0 3px 6px 0 #0003;
-    position: fixed;
 }
 
 .navbar a {

@@ -1,5 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
+import PostCard01 from "../components/PostCard_01";
+import PostCard02 from "../components/PostCard_02";
+import PostGrid02 from "../components/PostGrid_02";
 import styles from "../styles/Home.module.css";
 
 export default function Home({
@@ -19,55 +22,28 @@ export default function Home({
       </Head>{" "}
       <main className={styles.main}>
         <h1> Clipping do PSTU </h1>{" "}
-        <div className={styles.gridposts}>
-          {" "}
-          {listpstu.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
-          ))}{" "}
-        </div>{" "}
+        <PostGrid02>
+        {listpstu.map((item) => (
+                       <PostCard02 
+                       key = {item.id}
+                       title = {item.title.rendered}
+                       img = {item.jetpack_featured_media_url}
+                       href = {item.link}
+                       />
+          ))}
+        </PostGrid02>
         <br />
         <br />
         <br />
         <h1> Clipping da LIT - QI </h1>{" "}
         <div className={styles.gridposts}>
           {listlit.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
+            <PostCard01 
+            key = {item.id}
+              title = {item.title.rendered}
+              img = {item.jetpack_featured_media_url}
+              href = {item.link}
+            />
           ))}{" "}
         </div>{" "}
         <br />
@@ -75,107 +51,55 @@ export default function Home({
         <br />
         <h1> Clipping dos Metroviários(SP) </h1>{" "}
         <div className={styles.gridposts}>
-          {listmetro.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
+        {listmetro.map((item) => (
+            <PostCard01 
+              key = {item.id}
+              title = {item.title.rendered}
+              img = {item.jetpack_featured_media_url}
+              href = {item.link}
+            />
           ))}{" "}
         </div>{" "}
         <br />
         <br />
         <br />
         <h1> Clipping MIT(Chile) </h1>{" "}
-        <div className={styles.gridposts}>
-          {listmit.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
-          ))}{" "}
-        </div>{" "}
+        <PostGrid02>
+        {listmit.map((item) => (
+                       <PostCard02 
+                       key = {item.id}
+                       title = {item.title.rendered}
+                       img = {item.jetpack_featured_media_url}
+                       href = {item.link}
+                       />
+          ))}
+        </PostGrid02>
         <br />
         <br />
         <br />
         <h1> Clipping Socialismo Hoy(Costa Rica) </h1>{" "}
-        <div className={styles.gridposts}>
-          {listsh.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
-          ))}{" "}
-        </div>
+        <PostGrid02>
+        {listsh.map((item) => (
+                       <PostCard02
+                       key = {item.id}
+                       title = {item.title.rendered}
+                       img = {item.jetpack_featured_media_url}
+                       href = {item.link}
+                       />
+          ))}
+        </PostGrid02>
         <br />
         <br />
         <br />
         <h1> Clipping Corriente Roja(Estado Espanhol) </h1>{" "}
         <div className={styles.gridposts}>
           {listcorriente.map((item) => (
-            <a
-              key={item.id}
-              className={styles.postitem}
-              href={item.link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={styles.postimage_container}>
-                <div
-                  className={styles.postimage}
-                  style={{
-                    "background-image": `url(${item.jetpack_featured_media_url})`,
-                  }}
-                ></div>{" "}
-              </div>{" "}
-              <div className={styles.postinfo}>
-                <h3> {item.title.rendered} </h3>{" "}
-              </div>{" "}
-            </a>
+             <PostCard01 
+             key = {item.id}
+             title = {item.title.rendered}
+             img = {item.jetpack_featured_media_url}
+             href = {item.link}
+           />
           ))}{" "}
         </div>{" "}
       </main>{" "}

@@ -1,0 +1,54 @@
+.postitem {
+    min-height:320px;
+    transition: all .4s ease-in-out;
+    position:relative;
+    border-radius:4px;
+    overflow: hidden;
+}
+
+.gradient_cover{
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.2) 50%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index: 2;
+}
+.postinfo {
+    padding: 16px;
+    position: absolute;
+    z-index: 3;
+    bottom:16px;
+    color:white;
+}
+
+.posttitle {
+    margin: 0;
+    color:#ffffff;
+    font-size:24px;
+    line-height:1.25;
+}
+
+.postimage_container {
+    min-height: 160px;
+    overflow: hidden;
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:1;
+    background-size:cover;
+}
+
+.postimage {
+    transition: all .4s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.postitem:hover .postimage_container{
+    transform:scale(1.1);
+    transition: all .4s ease-in-out;
+}
+
+.postitem:hover h3 {
+    color: rgb(var(--primaria));
+}
