@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ listpstu, listlit, listmetro, listmit }) {
+export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) {
     return ( <
         div className = { styles.container } >
         <
@@ -163,9 +163,46 @@ export default function Home({ listpstu, listlit, listmetro, listmit }) {
                 /a>
             ))
         } <
-        /div>
-
+        /div> <
+        br / >
         <
+        br / >
+        <
+        br / >
+        <
+        h1 > Clipping MIT(Chile) < /h1> <
+        div className = { styles.gridposts } >
+
+        {
+            listmit.map((item) => ( <
+                a key = { item.id }
+                className = { styles.postitem }
+                href = { item.link }
+                target = "_blank"
+                rel = "noreferrer" >
+
+                <
+                div className = { styles.postimage_container } >
+
+                <
+                div className = { styles.postimage }
+                style = {
+                    {
+                        "background-image": `url(${item.jetpack_featured_media_url})`,
+                    }
+                } >
+                <
+                /div> < /
+                div > <
+                div className = { styles.postinfo } >
+
+                <
+                h3 > { item.title.rendered } < /h3> < /
+                div > <
+                /a>
+            ))
+        } <
+        /div> <
         /
         main > <
         /div>
@@ -185,13 +222,17 @@ export async function getServerSideProps() {
     const postMit = await fetch("https://clipping-next.vercel.app/api/posts_mit");
     const postMitJson = await postMit.json();
 
+    const postSh = await fetch("https://clipping-next.vercel.app/api/posts_sh");
+    const postShJson = await postSh.json();
+
 
     return {
         props: {
             listpstu: postJson.posts,
             listlit: postLitJson.posts,
             listmetro: postMetroJson.posts,
-            listmit: postMitJson.posts
+            listmit: postMitJson.posts,
+            listsh: postShJson.posts
         },
     };
 }
