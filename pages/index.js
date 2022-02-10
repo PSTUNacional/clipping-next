@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 
-export default function Home({}) {
+export default function Home({ listpstu, listlit }) {
     return ( <
         div className = { styles.container } >
         <
@@ -15,18 +15,91 @@ export default function Home({}) {
         link rel = "icon"
         href = "/favicon.ico" / >
         <
-        /Head>
-
-        <
+        /Head> <
         main className = { styles.main } >
         <
-        h1 > Clipping do PSTU < /h1> 
+        h1 > Clipping do PSTU < /h1> <
+            div className = { styles.gridposts } > {
+                listpstu.map((item) => ( <
+                    a key = { item.id }
+                    className = { styles.postitem }
+                    href = { item.link }
+                    target = "_blank"
+                    rel = "noreferrer" >
+                    <
+                    div className = { styles.postimage_container } >
+                    <
+                    div className = { styles.postimage }
+                    style = {
+                        {
+                            "background-image": `url(${item.jetpack_featured_media_url})`,
+                        }
+                    } >
+                    < /div> <
+                    /div> <
+                    div className = { styles.postinfo } >
 
+                    <
+                    h3 > { item.title.rendered } < /h3> <
+                    /div> <
+                    /a>
+                ))
+            } <
+            /div> <
+            br / >
+            <
+            br / >
+            <
+            br / >
+            <
+            h1 > Clipping da LIT - QI < /h1> <
+            div className = { styles.gridposts } >
 
+            {
+                listlit.map((item) => ( <
+                    a key = { item.id }
+                    className = { styles.postitem }
+                    href = { item.link }
+                    target = "_blank"
+                    rel = "noreferrer" >
 
-        <
-        /
-        main > <
-        /div>
-    )
+                    <
+                    div className = { styles.postimage_container } >
+
+                    <
+                    div className = { styles.postimage }
+                    style = {
+                        {
+                            "background-image": `url(${item.jetpack_featured_media_url})`,
+                        }
+                    } >
+                    < /div> <
+                    /div> <
+                    div className = { styles.postinfo } >
+
+                    <
+                    h3 > { item.title.rendered } < /h3> <
+                    /div> <
+                    /a>
+                ))
+            } <
+            /div> <
+            /main> <
+            /div>
+    );
+}
+
+export async function getServerSideProps() {
+    const post = await fetch("http://localhost:3000/api/posts_pstu");
+    const postJson = await post.json();
+
+    const postLit = await fetch("http://localhost:3000/api/posts_lit");
+    const postLitJson = await postLit.json();
+
+    return {
+        props: {
+            listpstu: postJson.posts,
+            listlit: postLitJson.posts,
+        },
+    };
 }
