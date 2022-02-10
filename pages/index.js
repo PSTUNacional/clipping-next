@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) {
+export default function Home({ listpstu, listlit, listmetro, listmit, listsh, listcorriente }) {
     return ( <
         div className = { styles.container } >
         <
@@ -202,7 +202,49 @@ export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) 
                 /a>
             ))
         } <
-        /div> < /
+        /div>
+
+        <
+        br / >
+        <
+        br / >
+        <
+        br / >
+        <
+        h1 > Clipping Corriente Roja(Estado Espanhol) < /h1> <
+        div className = { styles.gridposts } >
+
+        {
+            listcorriente.map((item) => ( <
+                a key = { item.id }
+                className = { styles.postitem }
+                href = { item.link }
+                target = "_blank"
+                rel = "noreferrer" >
+
+                <
+                div className = { styles.postimage_container } >
+
+                <
+                div className = { styles.postimage }
+                style = {
+                    {
+                        "background-image": `url(${item.jetpack_featured_media_url})`,
+                    }
+                } >
+                <
+                /div> < /
+                div > <
+                div className = { styles.postinfo } >
+
+                <
+                h3 > { item.title.rendered } < /h3> < /
+                div > <
+                /a>
+            ))
+        } <
+        /div>  <
+        /
         main > <
         /div>
     );
@@ -224,6 +266,9 @@ export async function getServerSideProps() {
     const postSh = await fetch("https://clipping-next.vercel.app/api/posts_sh");
     const postShJson = await postSh.json();
 
+    const postCorriente = await fetch("https://clipping-next.vercel.app/api/posts_sh");
+    const postCorrienteJson = await postCorriente.json();
+
 
     return {
         props: {
@@ -231,7 +276,8 @@ export async function getServerSideProps() {
             listlit: postLitJson.posts,
             listmetro: postMetroJson.posts,
             listmit: postMitJson.posts,
-            listsh: postShJson.posts
+            listsh: postShJson.posts,
+            listcorriente: postCorrienteJson.posts
         },
     };
 }
