@@ -179,7 +179,7 @@ export async function getServerSideProps() {
     const postMetro = await fetch("https://clipping-next.vercel.app/api/posts_metro");
     const postMetroJson = await postMetro.json();
 
-    const postCsp = await fetch("https://clipping-next.vercel.app/api/posts_metro");
+    const postCsp = await fetch("https://clipping-next.vercel.app/api/posts_csp");
     const postCspJson = await postCsp.json();
 
     return {
