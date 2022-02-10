@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ listpstu, listlit, listCsp }) {
+export default function Home({ listpstu, listlit }) {
     return ( <
         div className = { styles.container } >
         <
@@ -85,48 +85,8 @@ export default function Home({ listpstu, listlit, listCsp }) {
                 /a>
             ))
         } <
-        /div> 
-
-        <
-        br / >
-        <
-        br / >
-        <
-        br / >
-        <
-        h1 > Clipping da CSP - Conlutas < /h1> <
-        div className = { styles.gridposts } >
-
-        {
-            listCsp.map((item) => ( <
-                a key = { item.id }
-                className = { styles.postitem }
-                href = { item.link }
-                target = "_blank"
-                rel = "noreferrer" >
-
-                <
-                div className = { styles.postimage_container } >
-
-                <
-                div className = { styles.postimage }
-                style = {
-                    {
-                        "background-image": `url(${item.jetpack_featured_media_url})`,
-                    }
-                } >
-                <
-                /div> < /
-                div > <
-                div className = { styles.postinfo } >
-
-                <
-                h3 > { item.title.rendered } < /h3> < /
-                div > <
-                /a>
-            ))
-        } <
-        /div> </
+        /div>  <
+        /
         main > <
         /div>
     );
@@ -139,14 +99,10 @@ export async function getServerSideProps() {
     const postLit = await fetch("https://clipping-next.vercel.app/api/posts_lit");
     const postLitJson = await postLit.json();
 
-    const postCsp = await fetch("https://clipping-next.vercel.app/api/posts_csp");
-    const postCspJson = await postCsp.json();
-
     return {
         props: {
             listpstu: postJson.posts,
             listlit: postLitJson.posts,
-            listCsp: postCspJson.posts
         },
     };
 }
