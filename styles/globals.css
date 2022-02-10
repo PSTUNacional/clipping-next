@@ -1,28 +1,21 @@
-html,
-body {
+* {
     padding: 0;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: #eee;
+    font-family: sans-serif;
 }
 
-a {
-    color: inherit;
+:root {
+    --vermelho: 220, 0, 0;
+    --primaria: var(--vermelho);
+}
+
+body {
+    background-color: #999;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
     text-decoration: none;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-.grid-posts {
-    display: grid;
-    grid-gap: 24px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    margin: 24px;
-}
-
-.grid-posts div {
-    padding: 24px;
-    color: red;
 }

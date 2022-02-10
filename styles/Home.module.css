@@ -16,7 +16,8 @@
 .postitem {
     background-color: white;
     border-radius: 4px;
-    box-shadow: 0px 3px 6px 0 #0002
+    box-shadow: 0px 3px 6px 0 #0004;
+    transition: all .4s ease-in-out;
 }
 
 .postinfo {
@@ -40,7 +41,16 @@
     background-position: center;
 }
 
-.postimage:hover {
-    transform: scale(1.1);
+.postitem:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 9px 18px 0 #0008;
     transition: all .4s ease-in-out;
+}
+
+.postitem h3 {
+    color: black;
+}
+
+.postitem:hover h3 {
+    color: rgb(var(--primaria));
 }
