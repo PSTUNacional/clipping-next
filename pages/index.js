@@ -92,10 +92,10 @@ export default function Home({ listpstu, listlit }) {
 }
 
 export async function getServerSideProps() {
-    const post = await fetch("/api/posts_pstu");
+    const post = await fetch("https://clipping-next.vercel.app/api/posts_pstu");
     const postJson = await post.json();
 
-    const postLit = await fetch("/api/posts_lit");
+    const postLit = await fetch("https://clipping-next.vercel.app/api/posts_lit");
     const postLitJson = await postLit.json();
 
     return {
