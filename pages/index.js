@@ -140,7 +140,7 @@ export async function getServerSideProps() {
     const postLitJson = await postLit.json();
 
     const postCsp = await fetch("https://clipping-next.vercel.app/api/posts_csp");
-    const postCspJson = await postLit.json();
+    const postCspJson = await postCsp.json();
 
     return {
         props: {
