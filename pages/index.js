@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ listpstu, listlit }) {
+export default function Home({ listpstu, listlit, listmetro, listcsp }) {
     return ( <
         div className = { styles.container } >
         <
@@ -86,7 +86,84 @@ export default function Home({ listpstu, listlit }) {
             ))
         } <
         /div>  <
-        /
+        br / >
+        <
+        br / >
+        <
+        br / >
+        <
+        h1 > Clipping dos Metroviários(SP) < /h1> <
+        div className = { styles.gridposts } >
+
+        {
+            listcsp.map((item) => ( <
+                a key = { item.id }
+                className = { styles.postitem }
+                href = { item.link }
+                target = "_blank"
+                rel = "noreferrer" >
+
+                <
+                div className = { styles.postimage_container } >
+
+                <
+                div className = { styles.postimage }
+                style = {
+                    {
+                        "background-image": `url(${item.jetpack_featured_media_url})`,
+                    }
+                } >
+                <
+                /div> < /
+                div > <
+                div className = { styles.postinfo } >
+
+                <
+                h3 > { item.title.rendered } < /h3> < /
+                div > <
+                /a>
+            ))
+        } <
+        /div>  <
+        br / >
+        <
+        br / >
+        <
+        br / >
+        <
+        h1 > Clipping dos Metroviários(SP) < /h1> <
+        div className = { styles.gridposts } >
+
+        {
+            listmetro.map((item) => ( <
+                a key = { item.id }
+                className = { styles.postitem }
+                href = { item.link }
+                target = "_blank"
+                rel = "noreferrer" >
+
+                <
+                div className = { styles.postimage_container } >
+
+                <
+                div className = { styles.postimage }
+                style = {
+                    {
+                        "background-image": `url(${item.jetpack_featured_media_url})`,
+                    }
+                } >
+                <
+                /div> < /
+                div > <
+                div className = { styles.postinfo } >
+
+                <
+                h3 > { item.title.rendered } < /h3> < /
+                div > <
+                /a>
+            ))
+        } <
+        /div>  < /
         main > <
         /div>
     );
@@ -99,10 +176,18 @@ export async function getServerSideProps() {
     const postLit = await fetch("https://clipping-next.vercel.app/api/posts_lit");
     const postLitJson = await postLit.json();
 
+    const postMetro = await fetch("https://clipping-next.vercel.app/api/posts_metro");
+    const postMetroJson = await postMetro.json();
+
+    const postCsp = await fetch("https://clipping-next.vercel.app/api/posts_metro");
+    const postCspJson = await postCsp.json();
+
     return {
         props: {
             listpstu: postJson.posts,
             listlit: postLitJson.posts,
+            listmetro: postMetroJson.posts,
+            listcsp: postCspJson.posts
         },
     };
 }
