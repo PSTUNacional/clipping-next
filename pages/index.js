@@ -170,7 +170,7 @@ export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) 
         <
         br / >
         <
-        h1 > Clipping MIT(Chile) < /h1> <
+        h1 > Clipping Socialismo Hoy(Costa Rica) < /h1> <
         div className = { styles.gridposts } >
 
         {
@@ -202,8 +202,7 @@ export default function Home({ listpstu, listlit, listmetro, listmit, listsh }) 
                 /a>
             ))
         } <
-        /div> <
-        /
+        /div> < /
         main > <
         /div>
     );
